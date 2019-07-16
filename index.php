@@ -9,7 +9,7 @@
 /**
  * Redirects users to the correct app store depending of their phone's OS.
  */
-
+require 'PhoneDetector.php';
 
 /**
  * @internal As of PHP 5.3, 'const' keyword can be used outside of classes.
@@ -18,11 +18,10 @@ const ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=com.lif
 const IOS_STORE_URL = 'https://apps.apple.com/app/longer-life-lifyzer-food-scan/id1466196809';
 const WEBSITE_URL = 'https://lifyzer.com';
 
-$userAgent = $_SERVER['HTTP_USER_AGENT'];
-
-if (preg_match('#android#i', $userAgent)) {
+$phoneDetector = new \Lifyzer\Utility\PhoneDetector();
+if ($phoneDetector->isAndroid()) {
     $url = ANDROID_STORE_URL;
-} elseif (preg_match('#(iPhone|iPad)#i', $userAgent)) {
+} elseif ($phoneDetector->isIos()) {
     $url = IOS_STORE_URL;
 } else {
     $url = WEBSITE_URL;
