@@ -1,0 +1,5 @@
+{
+    "require": {
+        "ph-7/phonedetector": "^1.0"
+    }
+}
