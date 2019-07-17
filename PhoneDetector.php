@@ -15,8 +15,7 @@ class PhoneDetector
     private const REGEX_IOS = '#(iPhone|iPad)#i';
     private const REGEX_ANDROID = '#android#i';
 
-    /** @var string */
-    private $userAgent;
+    private string $userAgent;
 
     public function __construct()
     {
