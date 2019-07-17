@@ -18,13 +18,24 @@ const ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=com.lif
 const IOS_STORE_URL = 'https://apps.apple.com/app/longer-life-lifyzer-food-scan/id1466196809';
 const WEBSITE_URL = 'https://lifyzer.com';
 
-$phoneDetector = new \Lifyzer\Utility\PhoneDetector();
-if ($phoneDetector->isAndroid()) {
-    $url = ANDROID_STORE_URL;
-} elseif ($phoneDetector->isIos()) {
-    $url = IOS_STORE_URL;
-} else {
-    $url = WEBSITE_URL;
+function getUrl(): string
+{
+    $phoneDetector = new \Lifyzer\Utility\PhoneDetector();
+
+    switch (true) {
+        case $phoneDetector->isAndroid():
+            $url = ANDROID_STORE_URL;
+            break;
+
+        case $phoneDetector->isIos():
+            $url = IOS_STORE_URL;
+            break;
+
+        default:
+            $url = WEBSITE_URL;
+    }
+
+    return $url;
 }
 
-header('Location: ' . $url);
+header('Location: ' . getUrl());
