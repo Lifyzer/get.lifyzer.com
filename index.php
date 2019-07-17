@@ -1,15 +1,16 @@
 <?php
 /**
+ * Redirects users to the correct app store depending of their phone's OS.
+ *
  * @author         Pierre-Henry Soria <hi@ph7.me>
  * @link           https://lifyzer.com
  * @copyright      (c) 2019, Pierre-Henry Soria. All Rights Reserved.
  * @license        GNU General Public License; <https://www.gnu.org/licenses/gpl-3.0.en.html>
  */
 
-/**
- * Redirects users to the correct app store depending of their phone's OS.
- */
-require 'PhoneDetector.php';
+require 'vendor/autoload.php';
+
+use PierreHenry\PhoneDetector\PhoneDetector;
 
 /**
  * @internal As of PHP 5.3, 'const' keyword can be used outside of classes.
@@ -20,7 +21,7 @@ const WEBSITE_URL = 'https://lifyzer.com';
 
 function getLifyzerUrl(): string
 {
-    $phoneDetector = new \Lifyzer\Utility\PhoneDetector();
+    $phoneDetector = new PhoneDetector();
 
     switch (true) {
         case $phoneDetector->isAndroid():
