@@ -1,5 +1,5 @@
 {
     "require": {
-        "ph-7/phonedetector": "^1.0"
+        "ph-7/phonedetector": "^1.1"
     }
 }
