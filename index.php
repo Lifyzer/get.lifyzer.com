@@ -5,7 +5,7 @@
  * @author         Pierre-Henry Soria <hi@ph7.me>
  * @link           https://lifyzer.com
  * @copyright      (c) 2019, Pierre-Henry Soria. All Rights Reserved.
- * @license        GNU General Public License; <https://www.gnu.org/licenses/gpl-3.0.en.html>
+ * @license        MIT License; <https://opensource.org/licenses/MIT>
  */
 
 require 'vendor/autoload.php';
